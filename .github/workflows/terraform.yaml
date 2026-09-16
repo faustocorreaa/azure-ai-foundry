@@ -1,0 +1,21 @@
+name: Terraform CI/CD GitHub Actions
+
+on:
+    pull_request:
+    push:
+
+jobs:
+    terraform:
+        name: Terraform
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: .
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Terraform Init
+              id: init
+              run: terraform init
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
