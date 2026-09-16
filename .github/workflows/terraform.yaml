@@ -22,3 +22,13 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Terraform Validate
               run: terraform validate
+            - name: Terraform Init
+              id: plan
+              run: terraform plan
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Terraform Apply
+              id: apply
+              run: terraform apply -auto-approve
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
