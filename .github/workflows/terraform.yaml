@@ -22,7 +22,12 @@ jobs:
             - uses: hashicorp/setup-terraform@v3
             - name: Terraform Init
               id: init
-              run: terraform init
+              run: |
+                terraform init \
+                  -backend-config="client_id=$TF_VAR_client_id" \
+                  -backend-config="client_secret=$TF_VAR_client_secret" \
+                  -backend-config="subscription_id=$TF_VAR_subscription_id" \
+                  -backend-config="tenant_id=$TF_VAR_tenant_id"
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Terraform Validate

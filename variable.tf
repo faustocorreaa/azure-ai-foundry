@@ -1,3 +1,28 @@
+variable "client_id" {
+  description = "Service principal client ID (null falls back to Azure CLI login)"
+  default     = null
+  type        = string
+}
+
+variable "client_secret" {
+  description = "Service principal client secret"
+  default     = null
+  type        = string
+  sensitive   = true
+}
+
+variable "subscription_id" {
+  description = "Azure subscription ID"
+  default     = null
+  type        = string
+}
+
+variable "tenant_id" {
+  description = "Azure tenant ID"
+  default     = null
+  type        = string
+}
+
 variable "resource_group_name" {
   description = "The name of the resource group"
   default     = "Azure-AI-Foundry-RG"
