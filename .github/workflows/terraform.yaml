@@ -22,7 +22,7 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Terraform Validate
               run: terraform validate
-            - name: Terraform Init
+            - name: Terraform Plan
               id: plan
               run: terraform plan
               env:
