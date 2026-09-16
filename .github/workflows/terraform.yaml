@@ -17,7 +17,7 @@ jobs:
             - uses: hashicorp/setup-terraform@v3
             - name: Terraform Init
               id: init
-              run: terraform init -backend=false
+              run: terraform init
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Terraform Validate
